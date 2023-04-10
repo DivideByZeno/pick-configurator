@@ -1,0 +1,121 @@
+@use "sass:color";
+@use "sass:map";
+
+@font-face {
+font-family: "MetalMania";
+src: local("MetalMania"),
+    url("./assets/fonts/MetalMania-Regular.ttf") format("truetype");
+}
+
+@font-face {
+font-family: "Righteous";
+src: local("Righteous"),
+    url("./assets/fonts/Righteous-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    src: local("Inter"),
+    url("./assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: local("Nunito"),
+    url("./assets/fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+}
+
+@import "../node_modules/bootstrap/scss/functions";
+
+$guitarHighlight: #e3d2c0;
+$guitarLight: #eba462;
+$guitarBase: #be5f27;
+$guitarDark: #843a1d;
+$guitarShadow: #43281f;
+
+$blue: $guitarDark;
+
+$primary: $guitarBase;
+$secondary: #736a65;
+$white: #f1ded0;
+$border-color: $guitarLight;
+$card-bg: white;
+$link-color: black;
+$link-hover-color: $guitarDark;
+$link-active-color: $guitarBase;
+$nav-link-color: $link-color !default;
+$nav-link-hover-color: $link-hover-color !default;
+
+$btn-bg: $guitarDark;
+$btn-link-color: $guitarBase;
+$btn-link-hover-color: $guitarDark;
+$btn-hover-bg: $guitarDark;
+.topbar #sidebarToggleTop:hover {
+    background-color: $guitarLight;
+}
+
+$enable-gradients: true;
+$gradient: linear-gradient(180deg, rgba($guitarLight, .15), rgba($guitarLight, 0)) !default;
+.bg-gradient-primary {
+    background: $guitarDark;
+    background-color: $gradient;
+}
+.bg-footer {
+    background: $guitarHighlight;
+    background-color: $gradient;
+}
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: $link-color;
+}
+.topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+    color: $link-hover-color;
+}
+.topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+    color: $link-active-color;
+}
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/utilities";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+html,
+body,
+#root
+{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-family: 'Nunito' !important;
+}
+
+.experienceCanvas {
+  position: fixed !important;
+  z-index: 0;
+}
+
+canvas {
+    touch-action: none;
+}
+
+h6 {
+    color: $guitarShadow;
+}
+
+#page-top > #wrapper > nav, #content > nav, #content-wrapper > footer, #mainConfigOptions, #scrollToTopButton {
+  z-index: 1
+}
+
+#mainConfigOptions {
+  background: #eeeeee;
+  top: 100%;
+  transform: translateY(-100%);
+  position: relative;
+  height: 350px; 
+  overflow-x: hidden; overflow-y: scroll;
+}
