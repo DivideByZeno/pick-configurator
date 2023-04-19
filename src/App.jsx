@@ -2,12 +2,39 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
+import $ from 'jquery'
 export default function App() {
     const [currentBodyType, setBodyType] = useState('bodyTypeClassic')
+    const [currentMaterial, setMaterial] = useState('gold')
     
     const handleBodyType = (event) => {
         setBodyType(event.target.value)
     }
+    
+    const handleMaterial = (event) => {
+        setMaterial(event.target.value)
+    }
+    
+    const handleBodyTypeFromClick = (val) => {
+        setBodyType(val)
+    }
+    
+    const handleMaterialFromClick = (val) => {
+        setMaterial(val)
+    }
+    
+    useEffect(() => {
+        $( "div.bodyTypeCard" ).on( "click", function() {
+            $(this).find('input').first().prop('checked', true);
+            handleBodyTypeFromClick($(this).find('input').first().prop('value'))
+        });
+        
+        $( "div.materialCard" ).on( "click", function() {
+            $(this).find('input').first().prop('checked', true);
+            handleMaterialFromClick($(this).find('input').first().prop('value'))
+        });
+    }, [])
+    
     
     return (
         <>
@@ -18,7 +45,8 @@ export default function App() {
           far: 2000,
           position: [ -3, 1.5, 4 ]
       } } >
-          <Experience currentBodyType={currentBodyType} />
+        
+          <Experience currentBodyType={currentBodyType} currentMaterial={currentMaterial} />
     </Canvas>
     <div id="wrapper">
           <nav className="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -133,7 +161,7 @@ export default function App() {
                           </ul>
                       </div>
                   </nav>
-                  <div className="container-fluid pb-5 pt-3" id="mainConfigOptions">
+                  <div className="container-fluid pt-3" id="mainConfigOptions">
                     <div id="accordion-1" className="accordion pb-5" role="tablist">
                       <div className="accordion-item">
                           <h2 className="accordion-header" role="tab"><button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">Body Type</button></h2>
@@ -141,7 +169,7 @@ export default function App() {
                               <div className="accordion-body">
                                 <div className="row">
                                   <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card shadow border-start-primary py-2">
+                                      <div className="card bodyTypeCard shadow border-start-primary py-2">
                                           <div className="card-body">
                                               <div className="row align-items-center no-gutters">
                                                   <div className="col me-2">
@@ -165,7 +193,7 @@ export default function App() {
                                       </div>
                                   </div>
                                   <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card shadow border-start-success py-2">
+                                      <div className="card bodyTypeCard shadow border-start-success py-2">
                                           <div className="card-body">
                                               <div className="row align-items-center no-gutters">
                                                   <div className="col me-2">
@@ -188,7 +216,7 @@ export default function App() {
                                       </div>
                                   </div>
                                   <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card shadow border-start-info py-2">
+                                      <div className="card bodyTypeCard shadow border-start-info py-2">
                                           <div className="card-body">
                                               <div className="row align-items-center no-gutters">
                                                   <div className="col me-2">
@@ -211,7 +239,7 @@ export default function App() {
                                       </div>
                                   </div>
                                   <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card shadow border-start-warning py-2">
+                                      <div className="card bodyTypeCard shadow border-start-warning py-2">
                                           <div className="card-body">
                                               <div className="row align-items-center no-gutters">
                                                   <div className="col me-2">
@@ -241,38 +269,186 @@ export default function App() {
                         <h2 className="accordion-header" role="tab"><button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Material</button></h2>
                         <div className="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
                             <div className="accordion-body">
-                                <p className="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <div className="row">
+                                 
+                                <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Chrome</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="chrome" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$50</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/C7C7D7_4C4E5A_818393_6C6C74-256px.png" width="40" height="auto"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Slick chrome. Reflects light 1000 miles.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>   
+                                    
+                                <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Gold</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="gold" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$100</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/E6BF3C_5A4719_977726_FCFC82-256px.png" width="40" height="auto"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Go for the gold. 24 karats.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Plasma</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="plasma" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$200</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/2E763A_78A0B7_B3D1CF_14F209-256px.png" width="40" height="auto"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >New-age plasma, lab developed.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Fire</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="fire" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$300</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/FBB43F_FBE993_FB552E_FCDD65-256px.png" width="40" height="auto"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Hot to the touch. Firey tone.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Futuristic</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="futuristic" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$400</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/463F37_ACCFBB_818B78_91A494-256px.png" width="40" height="auto"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Futuristic. Made using space-age polymers.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Water</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="water" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$5</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/1C70C6_09294C_0F3F73_52B3F6-256px.png" width="40" height="auto"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label">A pick made out of water. Completely impossible!</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div className="accordion-item">
+                    {/* <div className="accordion-item">
                       <h2 className="accordion-header" role="tab"><button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Pattern</button></h2>
                       <div className="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
                           <div className="accordion-body">
                               <p className="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                           </div>
                       </div>
-                  </div>
-                  <div className="accordion-item">
+                  </div> */}
+                  {/* <div className="accordion-item">
                     <h2 className="accordion-header" role="tab"><button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-4" aria-expanded="false" aria-controls="accordion-1 .item-4">Decal</button></h2>
                     <div className="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-1">
                         <div className="accordion-body">
                             <p className="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
                   </div>
                   
                 </div>
               </div>
               
-              <footer className="bg-footer sticky-footer">
-                  <div className="container my-auto">
-                      <div className="text-center my-auto copyright"><span>Copyright © Make-A-Pick 2023</span></div>
-                  </div>
-              </footer>
           </div>
-          <a className="border rounded d-inline scroll-to-top" id="scrollToTopButton" href="#page-top"><i className="fas fa-angle-up"></i></a>
       </div>
         </>
     )
