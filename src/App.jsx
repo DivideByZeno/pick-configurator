@@ -4,8 +4,8 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import $ from 'jquery'
 export default function App() {
-    const [currentBodyType, setBodyType] = useState('bodyTypeClassic')
-    const [currentMaterial, setMaterial] = useState('gold')
+    const [currentBodyType, setBodyType] = useState('bodyTypeModern')
+    const [currentMaterial, setMaterial] = useState('wood')
     
     const handleBodyType = (event) => {
         setBodyType(event.target.value)
@@ -199,7 +199,7 @@ export default function App() {
                                                   <div className="col me-2">
                                                       <h6 className="text-uppercase fw-bold mb-1"><span>Modern</span></h6>
                                                       <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" id="bodyTypeModern" value="bodyTypeModern" onChange={handleBodyType}></input>
+                                                        <input className="form-check-input col-auto m-0" type="radio" defaultChecked name="exampleRadios" id="bodyTypeModern" value="bodyTypeModern" onChange={handleBodyType}></input>
                                                         <div className="col-auto ms-2">
                                                             <div className="text-dark fw-bold h6 mb-0 me-3"><span>$25</span></div>
                                                         </div>
@@ -270,7 +270,163 @@ export default function App() {
                         <div className="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
                             <div className="accordion-body">
                                 <div className="row">
-                                 
+                                    
+                                    <h1>Woods</h1>
+                                    
+                                <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Wood</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="wood" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$5</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/wood.jpg" width="40" height="40"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Wood. Good tone, good old natural sound.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Light Wood</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="light-wood" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$15</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/light-wood.jpg" width="40" height="40"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Light Wood. Lighter than normal and lighter tone.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Sunburst</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="sunburst" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$25</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/sunburst.jpg" width="40" height="40"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Sunburst. Sunny tone. Here comes the sun...</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <h1>Minerals</h1>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Stone</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="stone" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$2</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/stone.jpg" width="40" height="40"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Stone. This one is a bit rough around the edges.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Granite</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="granite" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$50</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/granite.jpg" width="40" height="40"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Granite. Good for countertops and picks.</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                    
+                                  <div className="col-md-6 col-xl-3 mb-4">
+                                      <div className="card materialCard shadow border-start-primary py-2">
+                                          <div className="card-body">
+                                              <div className="row align-items-center no-gutters">
+                                                  <div className="col me-2">
+                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Opal</span></h6>
+                                                      <div className="row g-0 align-items-center">
+                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="opal" defaultChecked 
+                                                        onChange={handleMaterial}></input>
+                                                        <div className="col-auto ms-2">
+                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$5000</span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/opal.jpg" width="40" height="40"/></div>
+                                              </div>
+                                              <div className="row">
+                                                <div className="col">
+                                                  <label className="small form-check-label" >Solid Opal. This is one expen$ive pick!</label>
+                                              </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                    
+                                  <h1>Metalics</h1>
+                                    
                                 <div className="col-md-6 col-xl-3 mb-4">
                                       <div className="card materialCard shadow border-start-primary py-2">
                                           <div className="card-body">
@@ -415,7 +571,7 @@ export default function App() {
                                               </div>
                                               <div className="row">
                                                 <div className="col">
-                                                  <label className="small form-check-label">A pick made out of water. Completely impossible!</label>
+                                                  <label className="small form-check-label">Blue water color. Neat.</label>
                                               </div>
                                               </div>
                                           </div>
