@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import $ from 'jquery'
+import PickMaterial from './PickMaterial.jsx'
 export default function App() {
     const [currentBodyType, setBodyType] = useState('bodyTypeModern')
     const [currentMaterial, setMaterial] = useState('wood')
@@ -270,327 +271,171 @@ export default function App() {
                         <div className="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
                             <div className="accordion-body">
                                 <div className="row">
+                                        
+                                    <h1>Metalics</h1>
+                                    
+                                    <PickMaterial 
+                                        name={"Water"} 
+                                        tag={"water"} 
+                                        price={"$5"} 
+                                        summary={"Blue water color. Neat."} 
+                                        path={"./assets/img/matcaps/1C70C6_09294C_0F3F73_52B3F6-256px.png"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
+                                    <PickMaterial 
+                                        name={"Chrome"} 
+                                        tag={"chrome"} 
+                                        price={"$50"} 
+                                        summary={"Slick chrome. Reflects light 1000 miles."} 
+                                        path={"./assets/img/matcaps/C7C7D7_4C4E5A_818393_6C6C74-256px.png"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
+                                    <PickMaterial 
+                                        name={"Gold"} 
+                                        tag={"gold"} 
+                                        price={"$100"} 
+                                        summary={"Go for the gold. 24 karats."} 
+                                        path={"./assets/img/matcaps/E6BF3C_5A4719_977726_FCFC82-256px.png"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
+                                    <PickMaterial 
+                                        name={"Holographic"} 
+                                        tag={"plasma"} 
+                                        price={"$200"} 
+                                        summary={"New-age holographic, lab developed."} 
+                                        path={"./assets/img/matcaps/2E763A_78A0B7_B3D1CF_14F209-256px.png"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
+                                    <PickMaterial 
+                                        name={"Fire"} 
+                                        tag={"fire"} 
+                                        price={"$300"} 
+                                        summary={"Hot to the touch. Firey tone."} 
+                                        path={"./assets/img/matcaps/FBB43F_FBE993_FB552E_FCDD65-256px.png"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
+                                    <PickMaterial 
+                                        name={"Futuristic"} 
+                                        tag={"futuristic"} 
+                                        price={"$400"} 
+                                        summary={"Futuristic. Made using space-age polymers."} 
+                                        path={"./assets/img/matcaps/463F37_ACCFBB_818B78_91A494-256px.png"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
+                                        
+                                    <h1>Minerals</h1>
+                                    
+                                    <PickMaterial 
+                                        name={"Stone"} 
+                                        tag={"stone"} 
+                                        price={"$2"} 
+                                        summary={"Stone. This one is a bit rough around the edges."} 
+                                        path={"./assets/img/textures/stone.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Quartz"} 
+                                        tag={"quartz"} 
+                                        price={"$5"} 
+                                        summary={"Quartz. Rock solid reliability."} 
+                                        path={"./assets/img/textures/quartz.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Sandstone"} 
+                                        tag={"sandstone"} 
+                                        price={"$50"} 
+                                        summary={"Sandstone."} 
+                                        path={"./assets/img/textures/sandstone.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Granite"} 
+                                        tag={"granite"} 
+                                        price={"$50"} 
+                                        summary={"Granite. Good for countertops and picks."} 
+                                        path={"./assets/img/textures/granite.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Petrified Wood"} 
+                                        tag={"petrified"} 
+                                        price={"$500"} 
+                                        summary={"Petrified wood. Ancient and valuable."} 
+                                        path={"./assets/img/textures/petrified.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Opal"} 
+                                        tag={"opal"} 
+                                        price={"$5000"} 
+                                        summary={"Solid Opal. This is one expen$ive pick!"} 
+                                        path={"./assets/img/textures/opal.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial> 
                                     
                                     <h1>Woods</h1>
                                     
-                                <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Wood</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="wood" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$5</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/wood.jpg" width="40" height="40"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Wood. Good tone, good old natural sound.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
+                                    <PickMaterial 
+                                        name={"Wood"} 
+                                        tag={"wood"} 
+                                        price={"$5"} 
+                                        summary={"Wood. Good tone, good old natural sound."} 
+                                        path={"./assets/img/textures/wood.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Light Wood"} 
+                                        tag={"light-wood"} 
+                                        price={"$15"} 
+                                        summary={"Light Wood. Lighter than normal and lighter tone."} 
+                                        path={"./assets/img/textures/light-wood.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Sunburst"} 
+                                        tag={"sunburst"} 
+                                        price={"$25"} 
+                                        summary={"Sunburst. Sunny tone. Here comes the sun..."} 
+                                        path={"./assets/img/textures/sunburst.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Grain"} 
+                                        tag={"grain"} 
+                                        price={"$30"} 
+                                        summary={"Wood grain. For a grainy tone."} 
+                                        path={"./assets/img/textures/grain.jpg"}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                        
+                                    <h1>Plastics</h1>
                                   
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Light Wood</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="light-wood" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$15</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/light-wood.jpg" width="40" height="40"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Light Wood. Lighter than normal and lighter tone.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Sunburst</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="sunburst" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$25</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/sunburst.jpg" width="40" height="40"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Sunburst. Sunny tone. Here comes the sun...</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <h1>Minerals</h1>
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Stone</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="stone" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$2</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/stone.jpg" width="40" height="40"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Stone. This one is a bit rough around the edges.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Granite</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="granite" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$50</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/granite.jpg" width="40" height="40"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Granite. Good for countertops and picks.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                    
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Opal</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="opal" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$5000</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/textures/opal.jpg" width="40" height="40"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Solid Opal. This is one expen$ive pick!</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                    
-                                  <h1>Metalics</h1>
-                                    
-                                <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Chrome</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="chrome" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$50</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/C7C7D7_4C4E5A_818393_6C6C74-256px.png" width="40" height="auto"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Slick chrome. Reflects light 1000 miles.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>   
-                                    
-                                <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Gold</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="gold" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$100</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/E6BF3C_5A4719_977726_FCFC82-256px.png" width="40" height="auto"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Go for the gold. 24 karats.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Plasma</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="plasma" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$200</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/2E763A_78A0B7_B3D1CF_14F209-256px.png" width="40" height="auto"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >New-age plasma, lab developed.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Fire</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="fire" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$300</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/FBB43F_FBE993_FB552E_FCDD65-256px.png" width="40" height="auto"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Hot to the touch. Firey tone.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Futuristic</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="futuristic" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$400</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/463F37_ACCFBB_818B78_91A494-256px.png" width="40" height="auto"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label" >Futuristic. Made using space-age polymers.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  <div className="col-md-6 col-xl-3 mb-4">
-                                      <div className="card materialCard shadow border-start-primary py-2">
-                                          <div className="card-body">
-                                              <div className="row align-items-center no-gutters">
-                                                  <div className="col me-2">
-                                                      <h6 className="text-uppercase mb-1 fw-bold"><span>Water</span></h6>
-                                                      <div className="row g-0 align-items-center">
-                                                        <input className="form-check-input col-auto m-0" type="radio" name="exampleRadios" value="water" defaultChecked 
-                                                        onChange={handleMaterial}></input>
-                                                        <div className="col-auto ms-2">
-                                                            <div className="text-dark fw-bold h6 mb-0 me-3"><span>$5</span></div>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-                                                  <div className="col-auto"><img alt="classic" className='material-preview-image' src="./assets/img/matcaps/1C70C6_09294C_0F3F73_52B3F6-256px.png" width="40" height="auto"/></div>
-                                              </div>
-                                              <div className="row">
-                                                <div className="col">
-                                                  <label className="small form-check-label">Blue water color. Neat.</label>
-                                              </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
+                                    <PickMaterial 
+                                        name={"Red"} 
+                                        tag={"red"} 
+                                        price={"$2"} 
+                                        summary={"Red. Sounds red."} 
+                                        path={""}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Green"} 
+                                        tag={"green"} 
+                                        price={"$2"} 
+                                        summary={"Green. Sounds green."} 
+                                        path={""}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Blue"} 
+                                        tag={"blue"} 
+                                        price={"$2"} 
+                                        summary={"Blue. Sounds blue."} 
+                                        path={""}
+                                        handleMaterial={handleMaterial}></PickMaterial>
+                                    <PickMaterial 
+                                        name={"Yellow"} 
+                                        tag={"yellow"} 
+                                        price={"$2"} 
+                                        summary={"Yellow. Sounds yellow."} 
+                                        path={""}
+                                        handleMaterial={handleMaterial}></PickMaterial>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    {/* <div className="accordion-item">
-                      <h2 className="accordion-header" role="tab"><button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Pattern</button></h2>
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" role="tab"><button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Thickness</button></h2>
                       <div className="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
                           <div className="accordion-body">
                               <p className="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                           </div>
                       </div>
-                  </div> */}
+                  </div>
                   {/* <div className="accordion-item">
                     <h2 className="accordion-header" role="tab"><button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-4" aria-expanded="false" aria-controls="accordion-1 .item-4">Decal</button></h2>
                     <div className="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-1">

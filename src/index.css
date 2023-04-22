@@ -11010,4 +11010,11 @@ h6, .h6 {
 
 .material-preview-image {
   border-radius: 20px;
+}
+
+.material-preview-image-color {
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5333333333), rgba(255, 255, 255, 0.5333333333));
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
 }/*# sourceMappingURL=index.css.map */

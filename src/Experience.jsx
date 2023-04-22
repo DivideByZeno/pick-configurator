@@ -19,6 +19,25 @@ export default function Experience({ currentBodyType, currentMaterial }) {
     const { width, height } = useThree((state) => state.viewport)
     const [pickRotation, setPickRotation] = useState([1,1,1])
     
+    const imageTextures = ['wood' ,'light-wood' ,'sunburst' 
+    ,'opal' ,'granite' ,'stone', 'grain', 'petrified', 'quartz', 'sandstone']
+    
+    const plastics = ['green', 'blue', 'red', 'yellow']
+    
+    const isMaterialImage = (selection) => {
+        if (imageTextures.includes(selection))
+            return true;
+        
+        return false;
+    };
+    
+    const isPlastic = (selection) => {
+        if (plastics.includes(selection))
+            return true;
+        
+        return false;
+    };
+    
     const getMaterialPath = (currentMaterial) => {
         var materialPath = ''
         switch(currentMaterial) {
@@ -60,6 +79,36 @@ export default function Experience({ currentBodyType, currentMaterial }) {
                 break;
             case 'stone':
                 materialPath = 'stone.jpg'
+                break;
+            case 'grain':
+                materialPath = 'grain.jpg'
+                break;
+            case 'petrified':
+                materialPath = 'petrified.jpg'
+                break;
+            case 'quartz':
+                materialPath = 'quartz.jpg'
+                break;
+            case 'sandstone':
+                materialPath = 'sandstone.jpg'
+                break;
+            case 'red':
+                materialPath = 'red'
+                break;
+            case 'green':
+                materialPath = 'green'
+                break;
+            case 'yellow':
+                materialPath = 'yellow'
+                break;
+            case 'blue':
+                materialPath = 'blue'
+                break;
+            case 'aqua':
+                materialPath = 'aqua'
+                break;
+            case 'magenta':
+                materialPath = 'magenta'
                 break;
             default:
                 materialPath = '6A3C15_EFC898_D59D59_B38346-256px.png'
@@ -107,22 +156,41 @@ export default function Experience({ currentBodyType, currentMaterial }) {
         material.needsUpdate = true
     }
     
-    const isMaterialImage = (selection) => {
-        if (selection === 'wood' || selection === 'light-wood' || selection === 'sunburst' 
-        || selection === 'opal' || selection === 'granite' || selection === 'stone')
-        return true;
+    const loadPlastic =() => {
+        var materialPath = getMaterialPath(currentMaterial)
         
-        return false;
-    };
+        switch(materialPath) {
+            case 'red':
+                material.color.set("#ff0000"); 
+                break;
+            case 'green':
+                material.color.set("#00ff00"); 
+                break;
+            case 'blue':
+                material.color.set("#0000ff"); 
+                break;
+            case 'yellow':
+                material.color.set("#ffff00");  
+                break;
+            default:
+                break;
+        }
+        
+        material.map = null
+        //material.color.setHSL(0, 1, .5);  // red
+        material.flatShading = true;
+        material.needsUpdate = true
+    }
     
     useEffect(() =>
     {
         if (isMaterialImage(currentMaterial)) {
             loadTexture()
+        } else if (isPlastic(currentMaterial)) {
+            loadPlastic()
         } else {
             loadMatcap()
         }
-        //debugger;
         
         setPickRotation([Math.PI * 1,Math.PI,Math.PI * 1.25])
     }, [])
@@ -131,12 +199,12 @@ export default function Experience({ currentBodyType, currentMaterial }) {
     {
         if (isMaterialImage(currentMaterial)) {
             loadTexture()
+        } else if (isPlastic(currentMaterial)) {
+            loadPlastic()
         } else {
             loadMatcap()
         }
     }, [currentMaterial])
-        
-    //setPickRotation([1,1,1])
     
     return (
         <>
