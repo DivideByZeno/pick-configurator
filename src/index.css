@@ -11017,4 +11017,14 @@ h6, .h6 {
   width: 40px;
   height: 40px;
   border-radius: 20px;
+}
+
+#configurationCostDisplay {
+  position: absolute;
+  right: 0;
+  margin: 8px;
+  width: 180px;
+}
+#configurationCostDisplay > div > div > h4, #configurationCostDisplay > div > div > .h4 {
+  margin-bottom: 0;
 }/*# sourceMappingURL=index.css.map */

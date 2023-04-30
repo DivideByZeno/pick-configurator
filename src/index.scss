@@ -159,3 +159,14 @@ h6 {
     height:40px;
     border-radius: 20px;
 }
+
+#configurationCostDisplay {
+    position: absolute;
+    right: 0;
+    margin: 8px;
+    width: 180px;
+    
+    > div > div > h4 {
+        margin-bottom:  0;
+    }
+}

@@ -7,37 +7,46 @@ import PickMaterial from './PickMaterial.jsx'
 import PickBodyType from './PickBodyType.jsx'
 import PickThickness from './PickThickness.jsx'
 
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 export default function App() {
-    const [currentBodyType, setBodyType] = useState('bodyTypeModern')
+    const [currentBodyType, setBodyType] = useState('modern')
     const [currentMaterial, setMaterial] = useState('wood')
     const [currentThickness, setThickness] = useState('.01')
+    
+    const [currentCost, setCurrentCost] = useState(0.00)
+    const [currentBodyTypeCost, setBodyTypeCost] = useState(0)
+    const [currentMaterialCost, setMaterialCost] = useState(0)
+    const [currentThicknessCost, setThicknessCost] = useState(0)
 
     const pickBodyTypes = [
         {
             "name": "Classic",
-            "tag": "bodyTypeClassic",
-            "price": "$20",
+            "tag": "classic",
+            "price": 20,
             "summary": "Sides tapered slightly rounded. Classic.",
             "path": "./assets/img/picks/classic_pick.png",
         },
         {
             "name": "Modern",
-            "tag": "bodyTypeModern",
-            "price": "$25",
+            "tag": "modern",
+            "price": 25,
             "summary": "Sides tapered straight. Modern design.",
             "path": "./assets/img/picks/modern_pick.png",
         },
         {
             "name": "Cyber",
-            "tag": "bodyTypeCyber",
-            "price": "$30",
+            "tag": "cyber",
+            "price": 30,
             "summary": "Sharp edges, sharp looks. EDM riffs!",
             "path": "./assets/img/picks/cyber_pick.png",
         },
         {
             "name": "Egg",
-            "tag": "bodyTypeEgg",
-            "price": "$5",
+            "tag": "egg",
+            "price": 5,
             "summary": "Hatch a tune with an egg-shaped pick!",
             "path": "./assets/img/picks/egg_pick.png"
         }
@@ -49,42 +58,42 @@ export default function App() {
                 {
                     "name": "Water",
                     "tag": "water",
-                    "price": "$5",
+                    "price": 5,
                     "summary": "Blue water color. Neat.",
                     "path": "./assets/img/matcaps/1C70C6_09294C_0F3F73_52B3F6-256px.png",
                 },
                 {
                     "name": "Chrome",
                     "tag": "chrome",
-                    "price": "$50",
+                    "price": 50,
                     "summary": "Slick chrome. Reflects light 1000 miles.",
                     "path": "./assets/img/matcaps/C7C7D7_4C4E5A_818393_6C6C74-256px.png",
                 },
                 {
                     "name": "Gold",
                     "tag": "gold",
-                    "price": "$100",
+                    "price": 100,
                     "summary": "Go for the gold. 24 karats.",
                     "path": "./assets/img/matcaps/E6BF3C_5A4719_977726_FCFC82-256px.png",
                 },
                 {
-                    "name": "Holographic",
+                    "name": "Plasma",
                     "tag": "plasma",
-                    "price": "$200",
+                    "price": 200,
                     "summary": "New-age holographic, lab developed.",
                     "path": "./assets/img/matcaps/2E763A_78A0B7_B3D1CF_14F209-256px.png",
                 },
                 {
                     "name": "Fire",
                     "tag": "fire",
-                    "price": "$300",
+                    "price": 300,
                     "summary": "Hot to the touch. Firey tone.",
                     "path": "./assets/img/matcaps/FBB43F_FBE993_FB552E_FCDD65-256px.png",
                 },
                 {
                     "name": "Futuristic",
                     "tag": "futuristic",
-                    "price": "$400",
+                    "price": 400,
                     "summary": "Futuristic. Made using space-age polymers.",
                     "path": "./assets/img/matcaps/463F37_ACCFBB_818B78_91A494-256px.png",
                 }
@@ -93,42 +102,42 @@ export default function App() {
                 {
                     "name": "Stone",
                     "tag": "stone",
-                    "price": "$2",
+                    "price": 2,
                     "summary": "Stone. This one is a bit rough around the edges.",
                     "path": "./assets/img/textures/stone.jpg",
                 },
                 {
                     "name": "Quartz",
                     "tag": "quartz",
-                    "price": "$5",
+                    "price": 5,
                     "summary": "Quartz. Rock solid reliability.",
                     "path": "./assets/img/textures/quartz.jpg",
                 },
                 {
                     "name": "Sandstone",
                     "tag": "sandstone",
-                    "price": "$50",
+                    "price": 50,
                     "summary": "Sandstone.",
                     "path": "./assets/img/textures/sandstone.jpg",
                 },
                 {
                     "name": "Granite",
                     "tag": "granite",
-                    "price": "$50",
+                    "price": 50,
                     "summary": "Granite. Good for countertops and picks.",
                     "path": "./assets/img/textures/granite.jpg",
                 },
                 {
                     "name": "Petrified Wood",
                     "tag": "petrified",
-                    "price": "$500",
+                    "price": 500,
                     "summary": "Petrified wood. Ancient and valuable.",
                     "path": "./assets/img/textures/petrified.jpg",
                 },
                 {
                     "name": "Opal",
                     "tag": "opal",
-                    "price": "$5000",
+                    "price": 5000,
                     "summary": "Solid Opal. This is one expen$ive pick!",
                     "path": "./assets/img/textures/opal.jpg",
                 }
@@ -137,28 +146,28 @@ export default function App() {
                 {
                     "name": "Wood",
                     "tag": "wood",
-                    "price": "$5",
+                    "price": 5,
                     "summary": "Wood. Good tone, good old natural sound.",
                     "path": "./assets/img/textures/wood.jpg",
                 },
                 {
                     "name": "Light Wood",
                     "tag": "light-wood",
-                    "price": "$15",
+                    "price": 15,
                     "summary": "Light Wood. Lighter than normal and lighter tone.",
                     "path": "./assets/img/textures/light-wood.jpg",
                 },
                 {
                     "name": "Sunburst",
                     "tag": "sunburst",
-                    "price": "$25",
+                    "price": 25,
                     "summary": "Sunburst. Sunny tone. Here comes the sun...",
                     "path": "./assets/img/textures/sunburst.jpg",
                 },
                 {
                     "name": "Grain",
                     "tag": "grain",
-                    "price": "$30",
+                    "price": 30,
                     "summary": "Wood grain. For a grainy tone.",
                     "path": "./assets/img/textures/grain.jpg",
                 }
@@ -168,28 +177,28 @@ export default function App() {
                 {
                     "name": "Red",
                     "tag": "red",
-                    "price": "$2",
+                    "price": 2,
                     "summary": "Red. Sounds red.",
                     "path": "",
                 },
                 {
                     "name": "Green",
                     "tag": "green",
-                    "price": "$2",
+                    "price": 2,
                     "summary": "Green. Sounds green.",
                     "path": "",
                 },
                 {
                     "name": "Blue",
                     "tag": "blue",
-                    "price": "$2",
+                    "price": 2,
                     "summary": "Blue. Sounds blue.",
                     "path": "",
                 },
                 {
                     "name": "Yellow",
                     "tag": "yellow",
-                    "price": "$2",
+                    "price": 2,
                     "summary": "Yellow. Sounds yellow.",
                     "path": "",
                 }
@@ -201,40 +210,48 @@ export default function App() {
         {
             "name":".5 mm",
             "tag":".005",
-            "price":"$0.50",
+            "price":0.50,
             "summary":"Skinny pick. Super fast picking.",
         },
         {
             "name":"1 mm",
             "tag":".01",
-            "price":"$0",
+            "price":0,
             "summary":"Standard thickness. Easy picking.",
         },
         {
             "name":"1.5 mm",
             "tag":".015",
-            "price":"$1.50",
+            "price":1.50,
             "summary":"Thicker pick. Great picking.",
         },
         {
             "name":"2 mm",
             "tag":".02",
-            "price":"$2",
+            "price":2,
             "summary":"Extra wide thickness. Super advanced!",
         },
     ]
 
-    const handleBodyTypeChange = (val) => {
+    const handleBodyTypeChange = (val, price) => {
         setBodyType(val)
+        setBodyTypeCost(price)
     }
 
-    const handleMaterialChange = (val) => {
+    const handleMaterialChange = (val, price) => {
         setMaterial(val)
+        setMaterialCost(price)
     }
 
-    const handleThicknessChange = (val) => {
+    const handleThicknessChange = (val, price) => {
         setThickness(val)
+        setThicknessCost(price)
     }
+    
+    useEffect(() =>
+    {
+        setCurrentCost(currentBodyTypeCost + currentMaterialCost + currentThicknessCost)
+    }, [currentBodyTypeCost, currentMaterialCost, currentThicknessCost])
 
     return (
         <>
@@ -364,6 +381,25 @@ export default function App() {
                                 </ul>
                             </div>
                         </nav>
+                        <div className="card shadow border-start-success" id="configurationCostDisplay">
+                            <div className="card-body">
+                                <div className="row align-items-center no-gutters">
+                                    <div className="col me-2 pb-2">
+                                        <div className="text-uppercase text-success fw-bold text-xs mb-1"><span>Total Cost</span></div>
+                                        <div className="text-dark fw-bold h5 mb-0"><span>{currentCost.toLocaleString('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                        })}</span></div>
+                                    </div>
+                                    <div className="col-auto"><i className="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
+                                </div>
+                                <div className='row'>
+                                    <h4 className="small fw-bold">Body: <span className="float-end">{currentBodyType}</span></h4>
+                                    <h4 className="small fw-bold">Material: <span className="float-end">{currentMaterial}</span></h4>
+                                    <h4 className="small fw-bold">Tickness: <span className="float-end">{currentThickness}</span></h4>
+                                </div>
+                            </div>
+                        </div>
                         <div className="container-fluid pt-3" id="mainConfigOptions">
                             <div id="accordion-1" className="accordion pb-5" role="tablist">
                                 <div className="accordion-item">

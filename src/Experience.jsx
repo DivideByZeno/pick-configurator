@@ -6,13 +6,13 @@ import { PointLight } from 'three'
 
 
 var material = new THREE.MeshMatcapMaterial()
-export default function Experience({ currentBodyType, currentMaterial, currentThickness }) {
+export default function Experience({ currentBodyType, currentMaterial, currentThickness}) {
     
     
-    const bodyTypeClassic = useGLTF('./models/bodyTypeClassic.glb')
-    const bodyTypeModern = useGLTF('./models/bodyTypeModern.glb')
-    const bodyTypeCyber = useGLTF('./models/bodyTypeCyber.glb')
-    const bodyTypeEgg = useGLTF('./models/bodyTypeEgg.glb')
+    const classic = useGLTF('./models/bodyTypeClassic.glb')
+    const modern = useGLTF('./models/bodyTypeModern.glb')
+    const cyber = useGLTF('./models/bodyTypeCyber.glb')
+    const egg = useGLTF('./models/bodyTypeEgg.glb')
     
     const textureLoader = new THREE.TextureLoader()
     
@@ -222,32 +222,32 @@ export default function Experience({ currentBodyType, currentMaterial, currentTh
 
             
             <Center top>
-            {currentBodyType === 'bodyTypeClassic' &&  <mesh 
-                geometry={ bodyTypeClassic.scene.children[0].geometry } 
+            {currentBodyType === 'classic' &&  <mesh 
+                geometry={ classic.scene.children[0].geometry } 
                 material={material}
                 scale={[1,1,currentThickness]}
                 position={[0,1.4,0]}
                 rotation={pickRotation}>
                 </mesh>}
                 
-            {currentBodyType === 'bodyTypeModern' && <mesh 
-            geometry={ bodyTypeModern.scene.children[0].geometry } 
+            {currentBodyType === 'modern' && <mesh 
+            geometry={ modern.scene.children[0].geometry } 
             material={material}
             scale={[1,1,currentThickness]}
             position={[0,1.4,0]}
             rotation={pickRotation}>
             </mesh>}
             
-            {currentBodyType === 'bodyTypeCyber' && <mesh 
-            geometry={ bodyTypeCyber.scene.children[0].geometry } 
+            {currentBodyType === 'cyber' && <mesh 
+            geometry={ cyber.scene.children[0].geometry } 
             material={material}
             scale={[1,1,currentThickness]}
             position={[0,1.4,0]}
             rotation={pickRotation}>
             </mesh>}
             
-            {currentBodyType === 'bodyTypeEgg' && <mesh 
-            geometry={ bodyTypeEgg.scene.children[0].geometry } 
+            {currentBodyType === 'egg' && <mesh 
+            geometry={ egg.scene.children[0].geometry } 
             material={material}
             scale={[1.5,1.5,currentThickness]}
             position={[0,1.4,0]}
