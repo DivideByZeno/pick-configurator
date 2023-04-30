@@ -6,7 +6,7 @@ import { PointLight } from 'three'
 
 
 var material = new THREE.MeshMatcapMaterial()
-export default function Experience({ currentBodyType, currentMaterial }) {
+export default function Experience({ currentBodyType, currentMaterial, currentThickness }) {
     
     
     const bodyTypeClassic = useGLTF('./models/bodyTypeClassic.glb')
@@ -127,6 +127,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
             matcapTexture.magFilter = THREE.NearestFilter
             material.map = matcapTexture
             material.matcap = null
+            material.color.set("white")
             material.needsUpdate = true
         })
         matcapTexture.encoding = THREE.sRGBEncoding
@@ -135,6 +136,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
         matcapTexture.magFilter = THREE.NearestFilter
         material.map = matcapTexture
         material.matcap = null
+        material.color.set("white")
         material.needsUpdate = true
     }
     
@@ -152,6 +154,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
         matcapTexture.encoding = THREE.sRGBEncoding
         matcapTexture.needsUpdate = true
         material.map = null;
+        material.color.set("white")
         material.matcap = matcapTexture
         material.needsUpdate = true
     }
@@ -177,6 +180,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
         }
         
         material.map = null
+        material.matcap = null
         //material.color.setHSL(0, 1, .5);  // red
         material.flatShading = true;
         material.needsUpdate = true
@@ -221,7 +225,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
             {currentBodyType === 'bodyTypeClassic' &&  <mesh 
                 geometry={ bodyTypeClassic.scene.children[0].geometry } 
                 material={material}
-                scale={[1,1,.01]}
+                scale={[1,1,currentThickness]}
                 position={[0,1.4,0]}
                 rotation={pickRotation}>
                 </mesh>}
@@ -229,7 +233,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
             {currentBodyType === 'bodyTypeModern' && <mesh 
             geometry={ bodyTypeModern.scene.children[0].geometry } 
             material={material}
-            scale={[1,1,.01]}
+            scale={[1,1,currentThickness]}
             position={[0,1.4,0]}
             rotation={pickRotation}>
             </mesh>}
@@ -237,7 +241,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
             {currentBodyType === 'bodyTypeCyber' && <mesh 
             geometry={ bodyTypeCyber.scene.children[0].geometry } 
             material={material}
-            scale={[1,1,.01]}
+            scale={[1,1,currentThickness]}
             position={[0,1.4,0]}
             rotation={pickRotation}>
             </mesh>}
@@ -245,7 +249,7 @@ export default function Experience({ currentBodyType, currentMaterial }) {
             {currentBodyType === 'bodyTypeEgg' && <mesh 
             geometry={ bodyTypeEgg.scene.children[0].geometry } 
             material={material}
-            scale={[1.5,1.5,.01]}
+            scale={[1.5,1.5,currentThickness]}
             position={[0,1.4,0]}
             rotation={pickRotation}>
             </mesh>}

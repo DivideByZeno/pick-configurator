@@ -11005,7 +11005,7 @@ h6, .h6 {
   position: relative;
   height: 350px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  scroll-behavior: auto;
 }
 
 .material-preview-image {
