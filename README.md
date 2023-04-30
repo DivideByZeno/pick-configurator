@@ -1,15 +1,19 @@
 # pick-configurator
 Guitar Pick Configurator concept written in React, Three JS, and R3F. Models created in Blender.
 
-##Description
+## Description
 
 This is a concept product configuration tool for an e-commerce application, in which the customer can configure and live-preview their choices. 3D interaction makes it possible to view the product from nearly every angle. 
 
-##Implementation
+## Implementation
 
 The site is implemented in React using Bootstrap as the underlying HTML and CSS foundation; the configurator portion is implmented in React Three Fiber (R3F). There are 4 pick body types, 24 materials, and 4 thicknesses to choose from. 
 
-##Tools
+## Setup 
+
+Download the project, and from a terminal (I use the terminal integrated into Visual Studio Code): npm run dev
+
+## Tools
 
 Tools used for this project:
 
