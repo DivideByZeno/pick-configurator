@@ -47,12 +47,6 @@
   color: #be5f27;
 }
 
-#wrapper > nav {
-  background-image: url("assets/img/guitar-texture2-r-g2.png");
-  background-repeat: repeat-x;
-  background-size: contain;
-}
-
 :root {
   --bs-blue: #843a1d;
   --bs-indigo: #6610f2;
