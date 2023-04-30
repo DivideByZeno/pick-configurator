@@ -80,11 +80,11 @@ $gradient: linear-gradient(180deg, rgba($guitarLight, .15), rgba($guitarLight, 0
     color: $link-active-color;
 }
 
-// #wrapper > nav {
-//     background-image: url('assets/img/guitar-texture2-r-g2.png');
-//     background-repeat: repeat-x;
-//     background-size: contain;
-// }
+#wrapper > nav {
+    background-image: url('assets/img/guitar-texture2-r-g2.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+}
 
 // #content > nav > div {
 //     background-image: linear-gradient(0deg, rgba($guitarShadow, .25), transparent);
@@ -162,6 +162,7 @@ h6 {
 
 #configurationCostDisplay {
     position: absolute;
+    opacity: .9;
     right: 0;
     margin: 8px;
     width: 180px;
